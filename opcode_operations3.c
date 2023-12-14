@@ -119,7 +119,7 @@ void rotr(stack_t **stack, UNUSED unsigned int line_number)
 {
 	stack_t *current = *stack;
 
-	if (current != NULL || current->next != NULL)
+	if (current != NULL && current->next != NULL)
 	{
 		while (current->next != NULL)
 		{
