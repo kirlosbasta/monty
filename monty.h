@@ -56,6 +56,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number, info_t *list);
 } instruction_t;
 
+extern info_t list;
+
 int get_opcode(char *filename, int *line_number, info_t *list);
 int  check_opcode(info_t *list, int line_num, instruction_t opcode[]);
 int check_delim(char *s, char *delim);

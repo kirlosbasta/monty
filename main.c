@@ -1,5 +1,7 @@
 #include "monty.h"
 
+info_t list = {NULL, NULL, NULL, NULL};
+
 /**
  * main - Entry to the program
  * @ac: number of arguments
@@ -13,10 +15,7 @@ int main(int ac, char *av[])
 	int line_number = 0, idx;
 	instruction_t opcode[] = {{"push", push}, {"pall", pall},
 		{"pint", pint}, {NULL, NULL}};
-	info_t list;
 
-	list.stack = NULL;
-	list.args = NULL;
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
