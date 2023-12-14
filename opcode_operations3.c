@@ -64,27 +64,18 @@ void pchar(stack_t **stack, unsigned int line_number)
 
 void pstr(stack_t **stack, UNUSED unsigned int line_number)
 {
-	stack_t *current = *stack;
-	int print = 0;
+	stack_t *tmp = *stack;
+	int c = 0;
 
-	if (*stack == NULL)
+	while (tmp)
 	{
-		printf("\n");
-	}
-	while (current != NULL && current->n != 0)
-	{
-		if (current->n < 0 || current->n > 127)
-		{
+		c = tmp->n;
+		if (c == 0 || _isalpha(c) == 0)
 			break;
-		}
-		printf("%c", current->n);
-		current = current->next;
-		print++;
+		putchar(c);
+		tmp = tmp->next;
 	}
-	if (print > 0)
-	{
-		printf("\n");
-	}
+	putchar('\n');
 }
 
 /**

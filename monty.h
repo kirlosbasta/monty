@@ -67,6 +67,7 @@ stack_t *add_dnodeint_end(stack_t **head, int n);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 void free_dlistint(void);
 int is_digit(char *s);
+int _isalpha(int c);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
