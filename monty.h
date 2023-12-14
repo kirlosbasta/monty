@@ -67,5 +67,6 @@ void free_dlistint(info_t *list);
 int is_digit(char *s);
 void push(stack_t **stack, unsigned int line_number, info_t *list);
 void pall(stack_t **stack, unsigned int line_number, info_t *list);
+void pint(stack_t **stack, unsigned int line_number, info_t *list);
 
 #endif

@@ -11,7 +11,8 @@
 int main(int ac, char *av[])
 {
 	int line_number = 0, idx;
-	instruction_t opcode[] = {{"push", push}, {"pall", pall}, {NULL, NULL}};
+	instruction_t opcode[] = {{"push", push}, {"pall", pall},
+		{"pint", pint}, {NULL, NULL}};
 	info_t list;
 
 	list.stack = NULL;

@@ -49,3 +49,23 @@ void pall(stack_t **stack, UNUSED unsigned int line_number,
 		current = current->next;
 	}
 }
+
+/**
+ * pint - print the values on top of the stack
+ * @stack: Front of the stack
+ * @line_number: line number
+ * @list: list of variables
+ *
+ * Return: Nothing
+ */
+
+void pint(stack_t **stack, unsigned int line_number, info_t *list)
+{
+	if (list->stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		free_dlistint(list);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+}
