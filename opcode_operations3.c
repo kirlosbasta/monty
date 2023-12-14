@@ -104,6 +104,31 @@ void rotl(stack_t **stack, UNUSED unsigned int line_number)
 		(*stack) = (*stack)->next;
 		current->next->next = NULL;
 		(*stack)->prev = NULL;
+	}	
+}
+
+/**
+ * rotr - move the bottom of the stack to the top
+ * @stack: Front of the stack
+ * @line_number: line number
+ *
+ * Return: Nothing
+ */
+
+void rotr(stack_t **stack, UNUSED unsigned int line_number)
+{
+	stack_t *current = *stack;
+
+	if (current != NULL || current->next != NULL)
+	{
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		current->prev->next = NULL;
+		current->prev = NULL;
+		current->next = *stack;
+		(*stack)->prev = current;
+		(*stack) = current;
 	}
-	
 }
