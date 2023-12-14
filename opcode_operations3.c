@@ -81,3 +81,29 @@ void pstr(stack_t **stack, UNUSED unsigned int line_number)
 	}
 	printf("\n");
 }
+
+/**
+ * rotl - move the top of the stack to the bottom
+ * @stack: Front of the stack
+ * @line_number: line number
+ *
+ * Return: Nothing
+ */
+
+void rotl(stack_t **stack, UNUSED unsigned int line_number)
+{
+	stack_t *current = *stack;
+
+	if (current != NULL && current->next != NULL)
+	{
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		current->next = *stack;
+		(*stack) = (*stack)->next;
+		current->next->next = NULL;
+		(*stack)->prev = NULL;
+	}
+	
+}

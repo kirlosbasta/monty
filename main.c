@@ -17,7 +17,7 @@ int main(int ac, char *av[])
 		{"pint", pint}, {"pop", pop}, {"swap", swap},
 		{"add", add}, {"nop", nop}, {"sub", sub}, {"div", division},
 		{"mul", mul}, {"mod", mod}, {"pchar", pchar}, {"pstr", pstr},
-		{NULL, NULL}};
+		{"rotl", rotl}, {NULL, NULL}};
 
 	if (ac != 2)
 	{
