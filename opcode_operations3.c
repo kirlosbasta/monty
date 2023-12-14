@@ -65,6 +65,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 void pstr(stack_t **stack, UNUSED unsigned int line_number)
 {
 	stack_t *current = *stack;
+	int print = 0;
 
 	if (*stack == NULL)
 	{
@@ -78,8 +79,10 @@ void pstr(stack_t **stack, UNUSED unsigned int line_number)
 		}
 		printf("%c", current->n);
 		current = current->next;
+		print++;
 	}
-	printf("\n");
+	if (print > 0)
+		printf("\n");
 }
 
 /**
