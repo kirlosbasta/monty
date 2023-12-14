@@ -19,3 +19,14 @@ void add(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n += (*stack)->n;
 	pop(stack, line_number);
 }
+
+/**
+ * nop - Do nothing
+ * @stack: Front of the stack
+ * @line_number: line number
+ *
+ * Return: Nothing
+ */
+
+void nop(UNUSED stack_t **stack, UNUSED unsigned int line_number)
+{}
