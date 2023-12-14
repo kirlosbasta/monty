@@ -14,7 +14,7 @@ int main(int ac, char *av[])
 {
 	int line_number = 0, idx;
 	instruction_t opcode[] = {{"push", push}, {"pall", pall},
-		{"pint", pint}, {NULL, NULL}};
+		{"pint", pint}, {"pop", pop}, {NULL, NULL}};
 
 	if (ac != 2)
 	{
