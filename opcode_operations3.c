@@ -104,7 +104,7 @@ void rotl(stack_t **stack, UNUSED unsigned int line_number)
 		(*stack) = (*stack)->next;
 		current->next->next = NULL;
 		(*stack)->prev = NULL;
-	}	
+	}
 }
 
 /**
