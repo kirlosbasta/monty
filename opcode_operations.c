@@ -4,7 +4,6 @@
  * push - Add a number to the top of stack
  * @stack: Front of the stack
  * @line_number: line number
- * @list: list of variables
  *
  * Return: Nothing
  */
@@ -32,7 +31,6 @@ void push(stack_t **stack, unsigned int line_number)
  * pall - print all the values in the stack
  * @stack: Front of the stack
  * @line_number: line number
- * @list: list of variables
  *
  * Return: Nothing
  */
@@ -52,7 +50,6 @@ void pall(stack_t **stack, UNUSED unsigned int line_number)
  * pint - print the values on top of the stack
  * @stack: Front of the stack
  * @line_number: line number
- * @list: list of variables
  *
  * Return: Nothing
  */

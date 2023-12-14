@@ -4,7 +4,6 @@
  * get_opcode - Get command from a file
  * @filename: name of the file to open
  * @line_number: number of line so far
- * @list: list of variables
  *
  * Return: 1 if there is still lines and 0 if EOF is reached
  */
@@ -46,7 +45,9 @@ char **get_argument(char *buffer)
 
 	if (arguments == NULL)
 	{
-		return (NULL);
+		fprintf(stderr, "Error: malloc failed\n");
+		free_dlistint();
+		exit(EXIT_FAILURE);
 	}
 	if (strlen(buffer) > 1)
 		buffer = strtok(buffer, "\n");
@@ -87,7 +88,6 @@ int check_delim(char *s, char *delim)
 
 /**
  * check_opcode - check if the argument are valid monty instruction
- * @list: list of variables
  * @line_num: line number
  * @opcode: list of valid opcode instructions
  *

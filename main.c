@@ -25,6 +25,8 @@ int main(int ac, char *av[])
 	while (get_opcode(av[1], &line_number))
 	{
 		list.args = get_argument(list.buffer);
+		if (list.args[0] == NULL)
+			continue;
 		idx = check_opcode(line_number, opcode);
 		if (idx == -1)
 			continue;

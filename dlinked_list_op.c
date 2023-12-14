@@ -112,7 +112,6 @@ int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 
 /**
  * free_dlistint - free double linked list
- * @list: list of variables
  *
  * Return: Nothing
  */
