@@ -16,7 +16,8 @@ int main(int ac, char *av[])
 	instruction_t opcode[] = {{"push", push}, {"pall", pall},
 		{"pint", pint}, {"pop", pop}, {"swap", swap},
 		{"add", add}, {"nop", nop}, {"sub", sub}, {"div", division},
-		{"mul", mul}, {"mod", mod}, {"pchar", pchar}, {NULL, NULL}};
+		{"mul", mul}, {"mod", mod}, {"pchar", pchar}, {"pstr", pstr},
+		{NULL, NULL}};
 
 	if (ac != 2)
 	{

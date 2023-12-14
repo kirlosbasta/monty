@@ -53,3 +53,31 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	printf("%c\n", (*stack)->n);
 }
+
+/**
+ * pstr - print the string starting from the top of the stack
+ * @stack: Front of the stack
+ * @line_number: line number
+ *
+ * Return: Nothing
+ */
+
+void pstr(stack_t **stack, UNUSED unsigned int line_number)
+{
+	stack_t *current = *stack;
+
+	if (*stack == NULL)
+	{
+		printf("\n");
+	}
+	while (current != NULL && current->n != 0)
+	{
+		if (current->n < 0 || current->n > 127)
+		{
+			break;
+		}
+		printf("%c", current->n);
+		current = current->next;
+	}
+	printf("\n");
+}
