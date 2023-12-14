@@ -21,7 +21,6 @@ int get_opcode(char *filename, int *line_number, info_t *list)
 		if (fp == NULL)
 		{
 			fprintf(stderr, "Error: Can't open file %s\n", filename);
-			free_dlistint(list);
 			exit(EXIT_FAILURE);
 		}
 	}
