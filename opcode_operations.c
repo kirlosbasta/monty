@@ -16,6 +16,7 @@ void push(stack_t **stack, unsigned int line_number, info_t *list)
 	if (list->args[1] == NULL || is_digit(list->args[1]))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", (int) line_number);
+		printf("%s %s\n", list->args[0], list->args[1]);
 		free_dlistint(list);
 		exit(EXIT_FAILURE);
 	}
