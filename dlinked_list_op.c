@@ -14,8 +14,7 @@ stack_t *add_dnodeint(stack_t **head, int n)
 
 	if (node == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	node->n = (int) n;
 	node->next = *head;
@@ -43,8 +42,7 @@ stack_t *add_dnodeint_end(stack_t **head, int n)
 
 	if (node == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	node->n = (int) n;
 	node->next = NULL;
@@ -114,14 +112,14 @@ int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 
 /**
  * free_dlistint - free double linked list
- * @head: Head of the list
+ * @list: list of variables
  *
  * Return: Nothing
  */
 
-void free_dlistint(stack_t *head)
+void free_dlistint(info_t *list)
 {
-	stack_t *tmp, *current = head;
+	stack_t *tmp, *current = list->stack;
 
 	while (current != NULL)
 	{
@@ -129,5 +127,9 @@ void free_dlistint(stack_t *head)
 		current = current->next;
 		free(tmp);
 	}
+	if (list->args != NULL)
+		free(list->args);
+	free(list->buffer);
+	fclose(list->fp);
 }
 

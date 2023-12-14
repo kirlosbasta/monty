@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * isdigit - check if a string contain only digits
+ * is_digit - check if a string contain only digits
  * @s: pointer to string
  *
  * Return: 0 on success and 1 on failure

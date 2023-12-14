@@ -10,27 +10,28 @@
 
 int main(int ac, char *av[])
 {
-	char *buffer, **args;
 	int line_number = 0, idx;
 	instruction_t opcode[] = {{"push", push}, {"pall", pall}, {NULL, NULL}};
-	stack_t *stack = NULL;
+	info_t list;
 
+	list.stack = NULL;
+	list.args = NULL;
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	buffer = malloc(sizeof(char) * BUF_SIZE);
-	while (get_opcode(av[1], &line_number, &buffer))
+	list.buffer = malloc(sizeof(char) * BUF_SIZE);
+	while (get_opcode(av[1], &line_number, &list))
 	{
-		args = get_argument(buffer);
-		idx = check_opcode(buffer, line_number, opcode);
+		list.args = get_argument(list.buffer);
+		idx = check_opcode(&list, line_number, opcode);
 		if (idx == -1)
 			continue;
-		opcode[idx].f(&stack, line_number, args);
-		free(args);
+		opcode[idx].f(&list.stack, line_number, &list);
+		free(list.args);
+		list.args = NULL;
 	}
-	free(buffer);
-	free_dlistint(stack);
+	free_dlistint(&list);
 	return (EXIT_SUCCESS);
 }
