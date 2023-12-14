@@ -81,8 +81,7 @@ void pstr(stack_t **stack, UNUSED unsigned int line_number)
 		current = current->next;
 		print++;
 	}
-	if (print > 0)
-		printf("\n");
+	printf("\n");
 }
 
 /**
