@@ -28,10 +28,18 @@ int main(int ac, char *av[])
 	{
 		list.args = get_argument(list.buffer);
 		if (list.args[0] == NULL || list.args[0][0] == '#')
+		{
+			free(list.args);
+			list.args = NULL;
 			continue;
+		}
 		idx = check_opcode(line_number, opcode);
 		if (idx == -1)
+		{
+			free(list.args);
+			list.args = NULL;
 			continue;
+		}
 		opcode[idx].f(&list.stack, line_number);
 		free(list.args);
 		list.args = NULL;
