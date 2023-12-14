@@ -9,7 +9,7 @@
  * Return: 1 if there is still lines and 0 if EOF is reached
  */
 
-int get_opcode(char *filename, int *line_number, info_t *list)
+int get_opcode(char *filename, int *line_number)
 {
 	static FILE *fp;
 	char *tmp;
@@ -17,14 +17,14 @@ int get_opcode(char *filename, int *line_number, info_t *list)
 	if (fp == NULL)
 	{
 		fp = fopen(filename, "r");
-		list->fp = fp;
+		list.fp = fp;
 		if (fp == NULL)
 		{
 			fprintf(stderr, "Error: Can't open file %s\n", filename);
 			exit(EXIT_FAILURE);
 		}
 	}
-	tmp = fgets(list->buffer, BUF_SIZE, fp);
+	tmp = fgets(list.buffer, BUF_SIZE, fp);
 	if (tmp == NULL)
 	{
 		return (0);
@@ -94,27 +94,27 @@ int check_delim(char *s, char *delim)
  * Return: index of opcode in list opcode or -1 if is not opcode
  */
 
-int  check_opcode(info_t *list, int line_num, instruction_t opcode[])
+int  check_opcode(int line_num, instruction_t opcode[])
 {
 	int idx;
 
-	if (list->args == NULL)
+	if (list.args == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free_dlistint(list);
+		free_dlistint();
 		exit(EXIT_FAILURE);
 	}
 	for (idx = 0; opcode[idx].opcode != NULL; idx++)
 	{
-		if (strcmp(list->args[0], opcode[idx].opcode) == 0)
+		if (strcmp(list.args[0], opcode[idx].opcode) == 0)
 		{
 			return (idx);
 		}
 	}
-	if (list->args[0][0] != '\n')
+	if (list.args[0][0] != '\n')
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, list->args[0]);
-		free_dlistint(list);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_num, list.args[0]);
+		free_dlistint();
 		exit(EXIT_FAILURE);
 	}
 	return (-1);

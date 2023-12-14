@@ -22,16 +22,16 @@ int main(int ac, char *av[])
 		exit(EXIT_FAILURE);
 	}
 	list.buffer = malloc(sizeof(char) * BUF_SIZE);
-	while (get_opcode(av[1], &line_number, &list))
+	while (get_opcode(av[1], &line_number))
 	{
 		list.args = get_argument(list.buffer);
-		idx = check_opcode(&list, line_number, opcode);
+		idx = check_opcode(line_number, opcode);
 		if (idx == -1)
 			continue;
-		opcode[idx].f(&list.stack, line_number, &list);
+		opcode[idx].f(&list.stack, line_number);
 		free(list.args);
 		list.args = NULL;
 	}
-	free_dlistint(&list);
+	free_dlistint();
 	return (EXIT_SUCCESS);
 }

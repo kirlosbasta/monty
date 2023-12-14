@@ -53,22 +53,22 @@ typedef struct info_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number, info_t *list);
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 extern info_t list;
 
-int get_opcode(char *filename, int *line_number, info_t *list);
-int  check_opcode(info_t *list, int line_num, instruction_t opcode[]);
+int get_opcode(char *filename, int *line_number);
+int  check_opcode(int line_num, instruction_t opcode[]);
 int check_delim(char *s, char *delim);
 char **get_argument(char *buffer);
 stack_t *add_dnodeint(stack_t **head, int n);
 stack_t *add_dnodeint_end(stack_t **head, int n);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
-void free_dlistint(info_t *list);
+void free_dlistint(void);
 int is_digit(char *s);
-void push(stack_t **stack, unsigned int line_number, info_t *list);
-void pall(stack_t **stack, unsigned int line_number, info_t *list);
-void pint(stack_t **stack, unsigned int line_number, info_t *list);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif

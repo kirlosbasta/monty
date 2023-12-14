@@ -117,9 +117,9 @@ int delete_dnodeint_at_index(stack_t **head, unsigned int index)
  * Return: Nothing
  */
 
-void free_dlistint(info_t *list)
+void free_dlistint(void)
 {
-	stack_t *tmp, *current = list->stack;
+	stack_t *tmp, *current = list.stack;
 
 	while (current != NULL)
 	{
@@ -127,9 +127,9 @@ void free_dlistint(info_t *list)
 		current = current->next;
 		free(tmp);
 	}
-	if (list->args != NULL)
-		free(list->args);
-	free(list->buffer);
-	fclose(list->fp);
+	if (list.args != NULL)
+		free(list.args);
+	free(list.buffer);
+	fclose(list.fp);
 }
 
