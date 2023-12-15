@@ -115,16 +115,15 @@ void rotr(stack_t **stack, UNUSED unsigned int line_number)
 {
 	stack_t *current = *stack;
 
-	if (current != NULL && current->next != NULL)
+	if (!line_number || !stack || !*stack || !(*stack)->next)
+		return;
+	while (current->next != NULL)
 	{
-		while (current->next != NULL)
-		{
-			current = current->next;
-		}
-		current->next = *stack;
-		current->prev->next = NULL;
-		current->prev = NULL;
-		(*stack)->prev = current;
-		(*stack) = current;
+		current = current->next;
 	}
+	current->next = *stack;
+	current->prev->next = NULL;
+	current->prev = NULL;
+	(*stack)->prev = current;
+	(*stack) = current;
 }
