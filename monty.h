@@ -31,6 +31,7 @@ typedef struct stack_s
  * @args: list of arguments
  * @stack: head of the list
  * @fp: pointer to file
+ * @order: set the order of pushing to stack or queue
  *
  * Description: ist of variables needed for freeing the allocated memory
  */
@@ -40,6 +41,7 @@ typedef struct info_s
 	char **args;
 	FILE *fp;
 	stack_t *stack;
+	int order;
 } info_t;
 
 /**
@@ -83,5 +85,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, UNUSED unsigned int line_number);
 void rotr(stack_t **stack, UNUSED unsigned int line_number);
+void _stack(UNUSED stack_t **stack, UNUSED unsigned int line_number);
+void _queue(UNUSED stack_t **stack, UNUSED unsigned int line_number);
 
 #endif

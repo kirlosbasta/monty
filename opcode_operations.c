@@ -11,6 +11,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	int num;
+	stack_t *node;
 
 	if (list.args[1] == NULL || is_digit(list.args[1]))
 	{
@@ -19,7 +20,15 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	num = atoi(list.args[1]);
-	if (add_dnodeint(stack, num) == NULL)
+	if (list.order == 1 || list.order == 0)
+	{
+		node = add_dnodeint(stack, num);
+	}
+	else
+	{
+		node = add_dnodeint_end(stack, num);
+	}
+	if (node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_dlistint();

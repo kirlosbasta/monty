@@ -1,6 +1,6 @@
 #include "monty.h"
 
-info_t list = {NULL, NULL, NULL, NULL};
+info_t list = {NULL, NULL, NULL, NULL, 0};
 
 /**
  * main - Entry to the program
@@ -17,7 +17,8 @@ int main(int ac, char *av[])
 		{"pint", pint}, {"pop", pop}, {"swap", swap},
 		{"add", add}, {"nop", nop}, {"sub", sub}, {"div", division},
 		{"mul", mul}, {"mod", mod}, {"pchar", pchar}, {"pstr", pstr},
-		{"rotl", rotl}, {"rotr", rotr}, {NULL, NULL}};
+		{"rotl", rotl}, {"rotr", rotr}, {"stack", _stack}, {"queue", _queue},
+		{NULL, NULL}};
 
 	if (ac != 2)
 	{
