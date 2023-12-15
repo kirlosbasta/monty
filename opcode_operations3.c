@@ -121,9 +121,9 @@ void rotr(stack_t **stack, UNUSED unsigned int line_number)
 		{
 			current = current->next;
 		}
+		current->next = *stack;
 		current->prev->next = NULL;
 		current->prev = NULL;
-		current->next = *stack;
 		(*stack)->prev = current;
 		(*stack) = current;
 	}
