@@ -98,8 +98,9 @@ void rotl(stack_t **stack, UNUSED unsigned int line_number)
 		}
 		current->next = *stack;
 		(*stack) = (*stack)->next;
-		current->next->next = NULL;
 		(*stack)->prev = NULL;
+		current->next->next = NULL;
+		current->next->prev = current;
 	}
 }
 
@@ -122,7 +123,8 @@ void rotr(stack_t **stack, UNUSED unsigned int line_number)
 			current = current->next;
 		}
 		current->next = *stack;
-		current->prev->next = NULL;
+		if (current->prev != NULL)
+			current->prev->next = NULL;
 		current->prev = NULL;
 		(*stack)->prev = current;
 		*stack = current;
